@@ -31,6 +31,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('stripe_webhooks', stripe_webhook_view, name='stripe_webhook'),
+    path('favicon.ico', RedirectView.as_view(url=settings.STATICFILES_STORAGE.url('favicon/favicon.ico'))),
 
 ]
 
@@ -40,3 +41,4 @@ if settings.DEBUG:
     urlpatterns += [
                         path('__debug__/', include(debug_toolbar.urls)),
                    ]
+
